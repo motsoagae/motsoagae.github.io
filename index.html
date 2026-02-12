@@ -1096,11 +1096,12 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
     </section>
     
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Kamogelo Molekwa | Applications Engineer | Built with precision and passion</p>
-        </div>
-    </footer>
+<footer>
+    <div class="container">
+        <p>&copy; <span id="yearRange"></span> Kamogelo Molekwa | Applications Engineer | Built with precision and passion</p>
+    </div>
+</footer>
+
     
     <!-- Chatbot -->
     <button class="chatbot-toggle" id="chatbotToggle">💬</button>
@@ -1257,6 +1258,15 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                 }
             });
         });
+
+          // Auto update footer year range
+        const startYear = 2022;
+        const currentYear = new Date().getFullYear();
+
+        document.getElementById('yearRange').textContent =
+            currentYear > startYear
+                ? `${startYear}–${currentYear}`
+                : startYear;
     </script>
 </body>
 </html>
