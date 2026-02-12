@@ -771,7 +771,11 @@
                 line-height: 1.6;
             }
             
-            /* Mobile timeline - keep centered like desktop */
+            /* Better mobile timeline layout */
+            .timeline::before {
+                left: 8px;
+            }
+            
             .timeline-item {
                 grid-template-columns: 1fr;
                 margin-bottom: 2.5rem;
@@ -780,8 +784,13 @@
             .timeline-item:nth-child(even) .timeline-content,
             .timeline-item:nth-child(odd) .timeline-content {
                 grid-column: 1;
-                text-align: center;
-                margin: 0;
+                text-align: left;
+                margin-left: 2.5rem;
+            }
+            
+            .timeline-dot {
+                left: 8px;
+                transform: translateX(-50%);
             }
             
             .timeline-content {
