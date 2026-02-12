@@ -331,12 +331,16 @@
             max-width: 900px;
             margin: 0 auto;
             border: 1px solid rgba(0, 255, 136, 0.2);
+            overflow-x: auto;
         }
         
         .console-terminal pre {
             margin: 0;
             font-size: 0.9375rem;
             line-height: 1.8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .prompt {
@@ -369,6 +373,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
         }
         
+        /* UPDATED TOOL ICON STYLES - This is the key fix */
         .tool-icon {
             width: 48px;
             height: 48px;
@@ -380,6 +385,27 @@
             font-size: 1.5rem;
             margin: 0 auto 1rem;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* New styles for image-based icons */
+        .tool-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
+            /* This ensures images don't touch the edges */
+        }
+        
+        /* For SVG logos that need white background */
+        .tool-icon.white-bg {
+            background: white;
+        }
+        
+        /* For logos that work better without gradient background */
+        .tool-icon.no-gradient {
+            background: rgba(255, 255, 255, 0.05);
         }
         
         .tool-card h3 {
@@ -724,6 +750,17 @@
                 width: 180px;
             }
             
+            /* Console terminal mobile fix */
+            .console-terminal {
+                padding: 1rem;
+                font-size: 0.8125rem;
+            }
+            
+            .console-terminal pre {
+                font-size: 0.8125rem;
+                line-height: 1.6;
+            }
+            
             .timeline::before {
                 left: 0;
             }
@@ -920,8 +957,11 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                     <p>Enterprise Administration</p>
                 </div>
                 
+                <!-- EXAMPLE: Jira with custom logo -->
                 <div class="tool-card">
-                    <div class="tool-icon">📋</div>
+                    <div class="tool-icon white-bg">
+                        <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/jira-logo.svg" alt="Jira">
+                    </div>
                     <h3>Jira</h3>
                     <p>Project Management</p>
                 </div>
